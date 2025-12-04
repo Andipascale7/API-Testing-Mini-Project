@@ -9,7 +9,10 @@ public class ListAllProductsTests {
     RestAssured
             .given()
             .baseUri("https://automationexercise.com")
+            .headers("Accept", "application/json", "Content-Type", "application/json")
+            .header("User-Agent", "Mozilla/5.0")
             .when()
+            .log().all()
             .get("/api/productsList")
             .then()
             .log().all()
