@@ -32,7 +32,7 @@ public class ListAllProductsTests {
 
     @Test
     void getAllProducts() {
-        MatcherAssert.assertThat(response.statusCode(), Matchers.is(200));
+        MatcherAssert.assertThat(response.statusCode(), Matchers.is(201));
         System.out.println(listAllProductsResponse.getProducts().get(1).getPrice());
     }
 }
