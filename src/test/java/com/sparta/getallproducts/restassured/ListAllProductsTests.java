@@ -1,6 +1,7 @@
 package com.sparta.getallproducts.restassured;
 
 import com.sparta.getallproducts.restassured.pojos.ListAllProductsResponse;
+import com.sparta.getallproducts.restassured.pojos.ProductsItem;
 import com.sparta.getallproducts.utils.Config;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
@@ -31,8 +32,54 @@ public class ListAllProductsTests {
     }
 
     @Test
+
+    void getstatucode200() {
+        MatcherAssert.assertThat(response.statusCode(), Matchers.is(200));
+    }
+
+    @Test
     void getAllProducts() {
-        MatcherAssert.assertThat(response.statusCode(), Matchers.is(201));
+        MatcherAssert.assertThat(
+                response.jsonPath().getList("products", ProductsItem.class).size(),
+                Matchers.is(34)
+        );
+    }
+
+    @Test
+    void getSecondProductPrice() {
+
         System.out.println(listAllProductsResponse.getProducts().get(1).getPrice());
+        MatcherAssert.assertThat(listAllProductsResponse.getProducts().get(1).getPrice(), Matchers.is("Rs. 400"));
+    }
+    @Test
+    void getSecondProductName() {
+        System.out.println(listAllProductsResponse.getProducts().get(1).getName());
+        MatcherAssert.assertThat(listAllProductsResponse.getProducts().get(1).getName(), Matchers.is("Men Tshirt"));
+    }
+    @Test
+    void getFirstProductId() {
+        System.out.println(listAllProductsResponse.getProducts().get(0).getId());
+        MatcherAssert.assertThat(listAllProductsResponse.getProducts().get(0).getId(), Matchers.is(1));
+    }
+    @Test
+    void getSecondProductId() {
+        System.out.println(listAllProductsResponse.getProducts().get(1).getId());
+        MatcherAssert.assertThat(listAllProductsResponse.getProducts().get(1).getId(), Matchers.is(2));
+    }
+    @Test
+    void getSecondProductCategory() {
+        System.out.println(listAllProductsResponse.getProducts().get(1).getCategory().getCategory());
+        MatcherAssert.assertThat(listAllProductsResponse.getProducts().get(1).getCategory().getCategory(), Matchers.is("Tshirts"));
+    }
+    @Test
+    void getSecondProductUserType() {
+        System.out.println(listAllProductsResponse.getProducts().get(1).getCategory().getUsertype().getUsertype());
+        MatcherAssert.assertThat(listAllProductsResponse.getProducts().get(1).getCategory().getUsertype().getUsertype(), Matchers.is("Men"));
+    }
+    @Test
+    void getSecondProductBrand() {
+        System.out.println(listAllProductsResponse.getProducts().get(1).getBrand());
+        MatcherAssert.assertThat(listAllProductsResponse.getProducts().get(1).getBrand(), Matchers.is("H&M"));
     }
 }
+
