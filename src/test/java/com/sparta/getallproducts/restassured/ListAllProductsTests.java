@@ -32,6 +32,7 @@ public class ListAllProductsTests {
     }
 
     @Test
+
     void getstatucode200() {
         MatcherAssert.assertThat(response.statusCode(), Matchers.is(200));
     }
@@ -46,6 +47,7 @@ public class ListAllProductsTests {
 
     @Test
     void getSecondProductPrice() {
+
         System.out.println(listAllProductsResponse.getProducts().get(1).getPrice());
         MatcherAssert.assertThat(listAllProductsResponse.getProducts().get(1).getPrice(), Matchers.is("Rs. 400"));
     }
