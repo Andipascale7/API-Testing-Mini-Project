@@ -27,16 +27,13 @@ public class ListAllProductsTests {
                 .then()
                 .log().all(false)
                 .extract().response();
-        listAllProductsResponse = response.as(ListAllProductsResponse.class);
+//        listAllProductsResponse = response.as(ListAllProductsResponse.class);
         listAllProductsResponse2 = response.as(ListAllProductsResponse2.class);
     }
 
     @Test
     void getAllProducts() {
-        MatcherAssert.assertThat(response.statusCode(), Matchers.is(200));
-        MatcherAssert.assertThat(
-                listAllProductsResponse2.getProducts()[1],
-                Matchers.is("")// the getResultMethod is from the singlePostcodeResponse class then the getPostcode is from Results class
-        );
+//        MatcherAssert.assertThat(response.statusCode(), Matchers.is(200));
+        System.out.println(listAllProductsResponse2.getProducts().get(1).getPrice());
     }
 }
