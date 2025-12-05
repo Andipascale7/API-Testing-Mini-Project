@@ -158,6 +158,8 @@ public class SearchProductTests {
         MatcherAssert.assertThat(searchProductResponse.getProducts().size(),Matchers.not(Matchers.is(0)));
         MatcherAssert.assertThat(searchProductResponse.getProducts().getFirst().getName().toLowerCase(),Matchers.containsString("polo"));
         MatcherAssert.assertThat(searchProductResponse.getProducts().getFirst().getCategory().getCategory().toLowerCase(),Matchers.not(Matchers.containsString("polo")));
+        MatcherAssert.assertThat(searchProductResponse.getProducts().getLast().getName().toLowerCase(),Matchers.containsString("polo"));
+        MatcherAssert.assertThat(searchProductResponse.getProducts().getLast().getCategory().getCategory().toLowerCase(),Matchers.not(Matchers.containsString("polo")));
     }
 
     @Test
@@ -181,5 +183,7 @@ public class SearchProductTests {
         MatcherAssert.assertThat(searchProductResponse.getProducts().size(),Matchers.not(Matchers.is(0)));
         MatcherAssert.assertThat(searchProductResponse.getProducts().getFirst().getName().toLowerCase(),Matchers.not(Matchers.containsString("tshirts")));
         MatcherAssert.assertThat(searchProductResponse.getProducts().getFirst().getCategory().getCategory().toLowerCase(),Matchers.containsString("tshirts"));
+        MatcherAssert.assertThat(searchProductResponse.getProducts().getLast().getName().toLowerCase(),Matchers.not(Matchers.containsString("tshirts")));
+        MatcherAssert.assertThat(searchProductResponse.getProducts().getLast().getCategory().getCategory().toLowerCase(),Matchers.containsString("tshirts"));
     }
 }
