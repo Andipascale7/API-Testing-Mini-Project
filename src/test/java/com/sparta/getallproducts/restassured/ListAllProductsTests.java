@@ -1,7 +1,6 @@
 package com.sparta.getallproducts.restassured;
 
 import com.sparta.getallproducts.restassured.pojos.ListAllProductsResponse;
-import com.sparta.getallproducts.restassured.pojos2.ListAllProductsResponse2;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
 import io.restassured.response.Response;
@@ -13,7 +12,6 @@ import org.junit.jupiter.api.Test;
 public class ListAllProductsTests {
     private static Response response;
     private static ListAllProductsResponse listAllProductsResponse;
-    private static ListAllProductsResponse2 listAllProductsResponse2;
 
     @BeforeAll
     static void beforeAll() {
@@ -27,13 +25,12 @@ public class ListAllProductsTests {
                 .then()
                 .log().all(false)
                 .extract().response();
-//        listAllProductsResponse = response.as(ListAllProductsResponse.class);
-        listAllProductsResponse2 = response.as(ListAllProductsResponse2.class);
+        listAllProductsResponse = response.as(ListAllProductsResponse.class);
     }
 
     @Test
     void getAllProducts() {
-//        MatcherAssert.assertThat(response.statusCode(), Matchers.is(200));
-        System.out.println(listAllProductsResponse2.getProducts().get(1).getPrice());
+        MatcherAssert.assertThat(response.statusCode(), Matchers.is(200));
+        System.out.println(listAllProductsResponse.getProducts().get(1).getPrice());
     }
 }
