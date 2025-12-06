@@ -9,11 +9,11 @@ A RestAssured test automation framework for testing the AutomationExercise API e
 This project tests various API endpoints from [automationexercise.com](https://automationexercise.com) using RestAssured, JUnit, and POJOs for clean, maintainable test code.
 
 ### Team Members
-- Joshna Joshy
-- Matt Lewis
-- Uzo Ugochukwu
-- Shannel Feranand
-- Andi Pascale
+- Joshna Joshy - [@joshnajoshy](https://www.github.com/joshnajoshy)
+- Matt Lewis - [@parrais](https://www.github.com/parrais)
+- Uzo Ugochukwu - [@uzougochukwu](https://www.github.com/uzougochukwu)
+- Shannel Feranand - [@Shea-D-Coder](https://www.github.com/Shea-D-Coder)
+- Andi Pascale - [@Andipascale7](https://www.github.com/Andipascale7)
 - Ana Patricia Da Silva
 
 ## Technologies Used
